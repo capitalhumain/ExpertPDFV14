@@ -108,13 +108,93 @@
 
 <script type='text/javascript' src='https://www.expert-pdf.com/fr/wp-includes/js/jquery/jquery.js'></script>
 
-<script type="text/javascript"
-  src="https://www.expert-pdf.com/fr/wp-content/themes/ExpertPDF/js/common.js?v=1.1.41559659806"></script>
+
 
 
 <script
   type="application/ld+json">{"@context": "http://schema.org","@type": "Organization","name": "expert-pdf.com/fr","aggregateRating" : {"@type": "AggregateRating","ratingValue" : "3.81","bestRating" : "5.00","ratingCount" : "359"}}</script>
 <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+<script>
+jQuery(function ($) {
+
+
+
+    // Sticky compare prods
+    function sticky_compare() {
+
+        var scroll = $(window).scrollTop(),
+            header_height = $('#header').height(),
+            screen_height = $(window).height(),
+            prods_top = $('#prod-compare-prods').offset().top,
+            prods_content = $('.prod-compare-prods').html(),
+            left_col_width = $('.compare-row .col-1').width(),
+            col1_left = $('.compare-row .col-1').offset().left + 20,
+            sys_req = $('#block-7').offset().top;
+
+        //$('.sticky-compare-prods').html('<ul class="prod-compare-prods">' + prods_content + '</ul>');
+        if (prods_top < scroll - 100) {
+
+            $('.sticky-compare-prods').addClass('show');
+
+        } else {
+
+            $('.sticky-compare-prods').removeClass('show');
+
+        }
+
+        if (scroll > sys_req - screen_height) {
+
+            $('.sticky-compare-prods').removeClass('show');
+
+        }
+
+
+
+    }
+
+
+
+
+    $(document).ready(function () {
+
+
+
+
+        // Sticky compare
+        if ($('.sticky-compare-prods').length) {
+
+            sticky_compare();
+
+        }
+
+
+
+
+    });
+
+    $(window).scroll(function () {
+
+
+
+
+        // Sticky compare
+        if ($('.sticky-compare-prods').length) {
+
+            sticky_compare();
+
+        }
+
+
+
+
+    });
+
+
+
+});
+
+
+</script>
 
 <script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="main.js"></script></body>
 </html>
